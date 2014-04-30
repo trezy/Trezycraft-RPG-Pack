@@ -6,8 +6,22 @@ TrezycraftConfig:
     # GENERAL CONFIGURATION
     ############################################################################
 
-    # Enable / disable the loot module
-    - flag global lootEnabled:true
-    - if <global.flag[lootEnabled]> == true {
-      - inject s@LootConfig instantly
+    # Add modules to this list to enable them
+    - define enabledModules li@Loot
+
+    ############################################################################
+    # INITIALIZE
+    ############################################################################
+
+    # Clear any previously enabled modules
+    - flag global enabledModules:!
+
+    # Enable modules
+    - foreach <%enabledModules%> {
+      - if <proc[EnableModule].context[%value%]> {
+        - narrate 'Enabled the <%value%> module.'
+        } else {
+        - narrate 'Failed to load the <%module%> module.'
+        }
       }
+    - narrate <global.flag[enabledModules]>
