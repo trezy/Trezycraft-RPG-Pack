@@ -1,0 +1,5 @@
+EnableModule:
+  type: task
+  script:
+    - inject s@<%1%> instantly
+    - flag global enabledModules:->:%1%

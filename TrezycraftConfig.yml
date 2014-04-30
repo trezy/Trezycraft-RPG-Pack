@@ -18,10 +18,5 @@ TrezycraftConfig:
 
     # Enable modules
     - foreach <%enabledModules%> {
-      - if <proc[EnableModule].context[%value%]> {
-        - narrate 'Enabled the <%value%> module.'
-        } else {
-        - narrate 'Failed to load the <%module%> module.'
-        }
+      - run s@EnableModule def:<%value%>
       }
-    - narrate <global.flag[enabledModules]>
