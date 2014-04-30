@@ -1,0 +1,13 @@
+TrezycraftConfig:
+  type: world
+  events:
+    on reload scripts:
+    ############################################################################
+    # GENERAL CONFIGURATION
+    ############################################################################
+
+    # Enable / disable the loot module
+    - flag global lootEnabled:true
+    - if <global.flag[lootEnabled]> == true {
+      - inject s@LootConfig instantly
+      }

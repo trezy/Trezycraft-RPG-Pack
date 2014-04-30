@@ -1,0 +1,37 @@
+LootConfig:
+  type: task
+  script:
+    ############################################################################
+    # GENERAL
+    ############################################################################
+
+    # Defines maximum amount of loot a single mob can drop.
+    - flag global maxLoot:3
+
+    ############################################################################
+    # DROP CHANCES
+    ############################################################################
+
+    # Chance that a single piece of loot will drop ( 0% - 100% ). For example,
+    # setting this to 33 will make loot drop about once for every three mobs
+    # killed.
+    - flag global lootDrop1:30
+
+    # Chance that a second piece of loot will drop ( 0% - 100% )
+    - flag global lootDrop2:10
+
+    # Chance that a third piece of loot will drop ( 0% - 100% )
+    - flag global lootDrop3:1
+
+    ############################################################################
+    # LOOT TABLES
+    ############################################################################
+
+    # Tier 1 loot
+    - flag global tier1loot:iron_sword
+
+    # Tier 2 loot
+    - flag global tier2loot:gold_sword
+
+    # Tier 3 loot
+    - flag global tier3loot:diamond_sword

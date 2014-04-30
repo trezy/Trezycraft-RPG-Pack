@@ -1,4 +1,3 @@
-Trezycraft-RPG-Pack
-===================
+# Trezycraft: RPG Pack
 
-This is a collection of Denizen scripts to turn your Minecraft server into a custom RPG world!
+This collection of Denizen scripts will turn your Minecraft server into a custom RPG world!
