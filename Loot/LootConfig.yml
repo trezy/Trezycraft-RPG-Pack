@@ -23,6 +23,16 @@ LootConfig:
     # Chance that a third piece of loot will drop ( 0% - 100% )
     - flag global lootDrop3:1
 
+    # NOTE
+    # All items that drop will default to Tier 1, making a "lootDropTier1" flag
+    # superfluous.
+    #
+    # Chance that a dropped piece of loot will be Tier 2 ( 0% - 100% )
+    - flag global lootDropTier2:20
+
+    # Chance that a dropped piece of loot will be Tier 3 ( 0% - 100% )
+    - flag global lootDropTier3:5
+
     ############################################################################
     # LOOT TABLES
     ############################################################################
@@ -35,3 +45,9 @@ LootConfig:
 
     # Tier 3 loot
     - flag global tier3loot:diamond_sword
+
+    # armorMaterials: chainmail|diamond|gold|iron|leather
+    # flag global armorTypes: boots|chestplate||helmet|leggings
+
+    # flag global weaponMaterials: diamond|gold|iron
+    # flag global weaponTypes: axe|bow|sword

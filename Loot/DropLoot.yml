@@ -1,0 +1,21 @@
+DropLoot:
+  type: task
+  script:
+    - define dropzone <%victimLocation%>
+    - define dropCountRandomizer <util.random.int[1].to[100]>
+    - define dropTierRandomizer <util.random.int[1].to[100]>
+
+    - repeat <global.flag[maxLoot]> {
+      - if %dropCountRandomizer% <= <global.flag[lootDrop<%value%>]> {
+        - define dropTier tier1loot
+        - define dropTierRandomizer <util.random.int[1].to[100]>
+
+        - if %dropTierRandomizer% <= <global.flag[lootDropTier2].div[%value%]> {
+          - define dropTier tier2loot
+          } else if %dropTierRandomizer% <= <global.flag[lootDropTier3].div[%value%]> {
+          - define dropTier tier3loot
+          }
+
+        - drop i@<global.flag[%dropTier%]> %dropzone%
+        }
+      }

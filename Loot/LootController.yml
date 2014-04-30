@@ -1,0 +1,11 @@
+LootController:
+  type: world
+  events:
+    on entity killed by entity_attack:
+    - if <global.flag[lootEnabled]> {
+      - if <context.damager.is_player> && <context.damager> == p@paraplegicpanda {
+        - define victimType <context.entity.entity_type>
+        - define victimLocation <context.entity.location>
+        - inject s@DropLoot
+        }
+      }
