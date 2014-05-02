@@ -1,5 +1,6 @@
 EnableModule:
   type: task
+  definitions: script_name
   script:
-    - inject s@<%1%> instantly
-    - flag global enabledModules:->:%1%
+    - inject <%script_name%> instantly
+    - flag global enabledModules:->:%script_name%
