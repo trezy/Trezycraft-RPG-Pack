@@ -1,4 +1,4 @@
-GrindFinish:
+GrindEnd:
   type: task
   script:
   - flag <%player%> <%questName%>:!

@@ -1,0 +1,7 @@
+GrindComplete:
+  type: task
+  script:
+  - flag <%player%> <%questName%>:completed
+  - if <definition[endOnComplete].exists> && <%endOnComplete%> {
+    - inject s@GrindEnd instantly
+    }

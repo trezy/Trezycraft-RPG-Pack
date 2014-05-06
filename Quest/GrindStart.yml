@@ -18,6 +18,9 @@
 #   Multiple rewards may be separated with ampersands (&):
 #   li@money=10&xp=100&item=10xdiamond
 #
+# @boolean endOnComplete (default: false)
+#   Determines if the quest should end when the player completes the quest.
+#
 # ---------------------------------------------------------------------------- #
 
 GrindStart:
@@ -26,6 +29,20 @@ GrindStart:
   requirements:
   - -flagged <%questName%>
   script:
-  - flag player <%questName%>:true
-  - if <definition[4].exists> define rewards <%4%>
-  - listen kill type:entity target:<%targetType%> qty:<%quantity%> script:GrindFinish
+  - define endOnComplete false
+  - if <definition[4].exists> {
+    - if <definition[4].is_list> {
+      - define rewards <%4%>
+      } else {
+      - define endOnComplete <%4%>
+      }
+    }
+  - if <definition[5].exists> {
+    - if <definition[5].is_list> {
+      - define rewards <%5%>
+      } else {
+      - define endOnComplete <%5%>
+      }
+    }
+  - flag player <%questName%>:started
+  - listen kill type:entity target:<%targetType%> qty:<%quantity%> script:GrindComplete
