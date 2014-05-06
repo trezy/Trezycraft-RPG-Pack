@@ -6,4 +6,6 @@ Quest:
     ############################################################################
 
     # Defines maximum amount of quests a player can have.
-    - flag global maxActiveQuests:0
+    # I don't know if I want Trezycraft to handle this. Commenting it out for
+    # now.
+    # - flag global maxActiveQuests:0

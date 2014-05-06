@@ -1,0 +1,31 @@
+# ---------------------------------------------------------------------------- #
+# Required Variables:
+#
+# @string questName
+# @string targetType
+# @number quantity
+#
+# ---------------------------------------------------------------------------- #
+# Optional Variables:
+#
+# @list reward
+#   Rewards must be defined in a list and must use the appropriate delimiters.
+#   Examples of properly formatted rewards:
+#   li@money=10
+#   li@xp=100
+#   li@item=10xdiamond
+#
+#   Multiple rewards may be separated with ampersands (&):
+#   li@money=10&xp=100&item=10xdiamond
+#
+# ---------------------------------------------------------------------------- #
+
+GrindStart:
+  type: task
+  definitions: questName|targetType|quantity
+  requirements:
+  - -flagged <%questName%>
+  script:
+  - flag player <%questName%>:true
+  - if <definition[4].exists> define rewards <%4%>
+  - listen kill type:entity target:<%targetType%> qty:<%quantity%> script:GrindFinish

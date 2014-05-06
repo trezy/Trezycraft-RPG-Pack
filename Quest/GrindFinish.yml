@@ -1,0 +1,15 @@
+GrindFinish:
+  type: task
+  script:
+  - flag <%player%> <%questName%>:!
+  - if <definition[rewards].exists> {
+    - foreach <%rewards%> {
+      - define reward <%value%.before[=]>
+      - define rewardQuantity <%value%.after[=]>
+      - if <%reward%> == item {
+        - define reward <i@<%rewardQuantity%.after[x]>>
+        - define rewardQuantity <%rewardQuantity%.before[x]>
+        }
+      - give <%reward%> qty:<%rewardQuantity%>
+      }
+    }
