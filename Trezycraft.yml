@@ -1,4 +1,4 @@
-TrezycraftConfig:
+Trezycraft:
   type: world
   events:
     on reload scripts:
@@ -7,7 +7,7 @@ TrezycraftConfig:
     ############################################################################
 
     # Add modules to this list to enable them
-    - define enabledModules li@Loot
+    - define enabledModules li@Loot|Quest
 
     ############################################################################
     # INITIALIZE

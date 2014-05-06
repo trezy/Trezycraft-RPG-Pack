@@ -1,0 +1,9 @@
+Quest:
+  type: task
+  script:
+    ############################################################################
+    # GENERAL
+    ############################################################################
+
+    # Defines maximum amount of quests a player can have.
+    - flag global maxActiveQuests:0
