@@ -1,0 +1,39 @@
+ChooseLoot:
+  type: procedure
+  script:
+    - define roll <util.random.int[1].to[100]>
+    - if %roll% <= 40 define itemQuality common
+      else if %roll% <= 70 define itemQuality uncommon
+      else if %roll% <= 85 define itemQuality rare
+      else if %roll% <= 95 define itemQuality epic
+      else define itemQuality legendary
+
+    - define itemQuality common
+    - if %itemQuality% == common random {
+      - define itemType random {
+        - armor
+        - potion
+        - tool
+        - weapon
+        }
+
+      - if %itemType% == armor define itemType random {
+        - boots
+        - chestplate
+        - helmet
+        - leggings
+        }
+
+      - if %itemType% == tool define itemType random {
+        - axe
+        - pickaxe
+        - shovel
+        }
+
+      - if %itemType% == weapon define itemType random {
+        - bow
+        - sword
+        }
+      }
+
+    - determine %itemType%

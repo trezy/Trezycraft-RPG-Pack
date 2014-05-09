@@ -5,12 +5,37 @@ Loot:
     # GENERAL
     ############################################################################
 
-    # Defines maximum amount of loot a single mob can drop.
-    - flag global maxLoot:3
+    # Should we drop money?
+    - flag global dropMoney:true
+
+    # Should we drop
+    - flag global dropLoot:true
+
+    ############################################################################
+    # MONEY DROPS
+    ############################################################################
+
+    # Should money drop as a bag that needs to be picked up or should it just be
+    # added to the player's wallet?
+    # May be 'bag' or 'wallet'
+    - flag global moneyDrops:bag
+
+    # Amount of money to be dropped when a mob is killed. May be a number ( n )
+    # or a range ( n-N ).
+    - flag global moneyDropBase:1-10
+
+    # Multiplier for the money drop. This can be a number, 'level', or 'xp'.
+    - flag global moneyDropMultiplier:1
 
     ############################################################################
     # DROP CHANCES
     ############################################################################
+
+    # Defines maximum amount of loot a single mob can drop.
+    - flag global maxLoot:3
+
+    # Defines the number of tiers for drops.
+    - flag global lootTiers:4
 
     # Chance that a single piece of loot will drop ( 0% - 100% ). For example,
     # setting this to 33 will make loot drop about once for every three mobs
@@ -26,12 +51,15 @@ Loot:
     # NOTE
     # All items that drop will default to Tier 1, making a "lootDropTier1" flag
     # superfluous.
-    #
+
     # Chance that a dropped piece of loot will be Tier 2 ( 0% - 100% )
     - flag global lootDropTier2:20
 
     # Chance that a dropped piece of loot will be Tier 3 ( 0% - 100% )
     - flag global lootDropTier3:5
+
+    # Chance that a dropped piece of loot will be Tier 4 ( 0% - 100% )
+    - flag global lootDropTier4:1
 
     ############################################################################
     # LOOT TABLES

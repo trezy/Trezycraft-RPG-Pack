@@ -1,0 +1,5 @@
+HourlyProcessor:
+  type: world
+  events:
+    on server flag currentHour changed:
+    - narrate <global.flag[currentHour]>

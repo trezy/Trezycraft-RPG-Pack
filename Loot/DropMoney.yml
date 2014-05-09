@@ -1,0 +1,22 @@
+DropMoney:
+  type: task
+
+  script:
+  - if <global.flag[moneyDropBase].contains[-]> {
+    - define minBase <global.flag[moneyDropMultiplier].before[-]>
+    - define maxBase <global.flag[moneyDropMultiplier].after[-]>
+    - define base <util.random.int[<%minBase%>].to[<%maxBase%>]>
+    } else {
+    - define base <global.flag[moneyDropBase]>
+    }
+
+  - if <global.flag[moneyDropMultiplier]> == level {
+    - define multiplier <context.damager.xp.level>
+    } else if <global.flag[moneyDropMultiplier]> == xp {
+    - define multiplier <context.damager.xp.total>
+    } else {
+    - define multiplier <global.flag[moneyDropMultiplier]>
+    }
+
+  - define moneyDrop <%base%.mul[<%multiplier%>].as_int>
+  - drop i@flowerpot %dropzone%
